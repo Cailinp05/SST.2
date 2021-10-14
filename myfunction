@@ -1,0 +1,22 @@
+runfunction <- function(data(x)[-c(1:10), ]) {
+data(x) <- data(x) %>% 
+  + rename(data = "Project:", 
+          time = "Algoa Bay Long Term Monitoring & Research", 
+           temp = "Sub Project:")
+  + data(x) <- data(x) %>% 
+  select(-X4, - time)
+  + data(x) <- data(x) %>%
+  mutate(site = "data(x)", depth = "10")
+  + data(x) <- data(x) %>%
+  mutate(date = as.Date(date))
+  + data(x)$temp <- as.numeric(data(x)$temp)
+  + data(x)$depth <- as.numeric(data(x)$depth)
+  + data(x)mean <- data(x) %>%
+  + group_by(date) %>%
+  + summarise(mean_daily = mean(temp)) %>%
+  + mutate(site = "data(x)", depth = "10")
+
+results <- data(X)mean
+
+return(results)}
+
