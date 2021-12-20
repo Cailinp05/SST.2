@@ -1,0 +1,29 @@
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
+
+Algoa_Bay_daily[date <- "2010-06-02" & date <- "2021-06-11"]
+
+  Algoa_Bay_Daily_Temps <-ggplot(data = Algoa_Bay_daily, aes(x = date, y = daily_temps)) +
+  geom_point() + na.rm
+  geom_line(aes(group = depth))
+  
+  ggplot(data = Algoa_Bay_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_line() +na.rm
+    geom_smooth(method = "lm")
+
+  ggplot(data = Algoa_Bay_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_point() +
+    geom_smooth(method = "lm") +na.rm
+    labs(x = "date", y = "daily_temps", colour = "depth type") + 
+    theme(legend.position = "bottom") 
+  
+  Algoa_Bay_Daily_Temps <- ggplot(data = Algoa_Bay_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_line() +
+    geom_smooth(method = "lm") +
+    facet_wrap(~depth, ncol = 5) + 
+    labs(x = "date", y = "daily_temps") 
+  
+  Algoa_Bay_Daily_Temps
+   
