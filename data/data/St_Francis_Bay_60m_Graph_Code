@@ -3,7 +3,7 @@ library(ggplot2)
 library(ggpubr)
 library(dplyr)
 
-St_Francis_Bay_60m_West_daily[date <- "2009-10-31" & date <- "2021-03-10"] 
+St_Francis_Bay_60m_West_daily[date <- "2016-10-22" & date <- "2021-05-04"] 
 
   St_Francis_Bay_60m_West_daily_temps <-ggplot(data = St_Francis_Bay_60m_West_daily, aes(x = date, y = daily_temps)) +
   geom_point() + na.rm
