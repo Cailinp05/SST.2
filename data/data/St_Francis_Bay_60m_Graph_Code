@@ -1,0 +1,29 @@
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
+
+St_Francis_Bay_60m_West_daily[date <- "2009-10-31" & date <- "2021-03-10"] 
+
+  St_Francis_Bay_60m_West_daily_temps <-ggplot(data = St_Francis_Bay_60m_West_daily, aes(x = date, y = daily_temps)) +
+  geom_point() + na.rm
+  geom_line(aes(group = depth))
+  
+  ggplot(data = St_Francis_Bay_60m_West_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_line() +na.rm
+    geom_smooth(method = "lm")
+
+  ggplot(data = St_Francis_Bay_60m_West_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_point() +
+    geom_smooth(method = "lm") +na.rm
+    labs(x = "date", y = "daily_temps", colour = "depth type") + 
+    theme(legend.position = "bottom") 
+  
+St_Francis_Bay_60m_West_daily_temps <- ggplot(data = St_Francis_Bay_60m_West_daily, aes(x = date, y = daily_temps, colour = depth)) +
+    geom_line() +
+    geom_smooth(method = "lm") +
+    facet_wrap(~depth, ncol = 5) + 
+    labs(x = "date", y = "daily_temps") 
+  
+ St_Francis_Bay_60m_West_daily_temps
+   
